@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Dashboard from "./Customer/dashboard";
+import AgentLogin from "./Agent/login";
 function App() {
 
   return (
@@ -7,8 +7,8 @@ function App() {
      <Routes>
 
       <Route 
-        path="/dashboard/*"
-        element={<Dashboard />}
+        path="/agent/login"
+        element={<AgentLogin />}
       />
 
     </Routes>

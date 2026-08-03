@@ -1,4 +1,4 @@
-//agents should have name, email, phone number, and department. The department should be a dropdown with the following options: Sales, Support, and Billing. The agent should also have a status of Active or Inactive. The status should be a dropdown with the following options: Active and Inactive. and also assagned complaints.
+
 
 export const agents = [
   {
