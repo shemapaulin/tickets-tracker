@@ -41,7 +41,7 @@ export default function Navbar() {
           
 
           <Link
-            to="/feedback"
+            to="/dashboard/feedback"
             className="flex items-center gap-2 hover:text-primary"
           >
             <FileText size={18} />

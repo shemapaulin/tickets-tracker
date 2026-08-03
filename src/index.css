@@ -3,7 +3,7 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/inter";
 
-@custom-variant dark (&:is(.dark *));
+/* Dark mode is handled by the .dark theme block below. */
 
 @theme inline {
     --font-heading: var(--font-sans);
