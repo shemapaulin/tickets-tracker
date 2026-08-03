@@ -2,7 +2,7 @@ import Fielddemo from '@/components/fielddemo'
 
 const dashboardhome = () => {
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center w-screen pb-10">
       <h1 className="text-3xl flex justify-center items-center font-bold w-screen pt-10">
           What can we help you with?
         </h1>

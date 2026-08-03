@@ -22,7 +22,7 @@ const feedback = () => {
       </div>
 
       {status === "Resolved" && (
-        <><div className="flex justify-center items-center pt-10 pb-10">
+        <><div className="flex flex-col gap-6 justify-center items-center pt-10 pb-10">
           <Alert className="max-w-xl">
             <AlertTitle>Your feedback has been resolved.</AlertTitle>
             <AlertDescription>
@@ -30,7 +30,10 @@ const feedback = () => {
               continue to work on improving our services.
             </AlertDescription>
           </Alert>
-        </div><FieldDemo /></>
+          <FieldDemo />
+        </div>
+        
+        </>
       )}
     </div>
   )
