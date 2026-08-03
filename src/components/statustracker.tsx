@@ -1,6 +1,12 @@
 import { Check } from "lucide-react";
 
-const steps = [
+type FeedbackStatus =
+  | "Submitted"
+  | "Under Review"
+  | "In Progress"
+  | "Resolved";
+
+const steps: FeedbackStatus[] = [
   "Submitted",
   "Under Review",
   "In Progress",
@@ -8,14 +14,15 @@ const steps = [
 ];
 
 type Props = {
-  status: string;
+  status: FeedbackStatus;
 };
 
 export default function StatusTracker({ status }: Props) {
   const currentIndex = steps.indexOf(status);
 
   return (
-    <div className="flex w-full items-center justify-between">
+    // I want this to be in center wherever I will use this component
+    <div className="flex w-full max-w-2xl items-center justify-center">
 
       {steps.map((step, index) => {
         const completed = index < currentIndex;
@@ -24,7 +31,7 @@ export default function StatusTracker({ status }: Props) {
         return (
           <div
             key={step}
-            className="flex flex-1 items-center"
+            className="flex flex-1 items-center "
           >
 
             {/* Circle */}
