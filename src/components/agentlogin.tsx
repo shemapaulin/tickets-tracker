@@ -85,7 +85,6 @@ export default function Login() {
     return;
   }
 
-  alert("Login successful");
 
   setLoggedAgent(agent);
   setOpen(true);
