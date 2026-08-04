@@ -6,7 +6,7 @@ export const complaints = [
     title: "Complaint 1",
     description: "Description of complaint 1",
     status: "Submitted",
-    supportAgent: "",
+    supportAgent: "Shingiro Audran",
   },
   {
     id: 2,
@@ -14,6 +14,6 @@ export const complaints = [
     title: "Complaint 2",
     description: "Description of complaint 2",  
     status: "Submitted",
-    supportAgent: "",
+    supportAgent: "Charles Murava",
   }
 ]   

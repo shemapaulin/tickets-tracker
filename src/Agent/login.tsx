@@ -1,6 +1,5 @@
 import Login from '@/components/agentlogin'
 import bg from "@/assets/bg.jpg"
-import React from 'react'
 
 const login = () => {
   return (

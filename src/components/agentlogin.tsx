@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -51,6 +51,11 @@ export default function Login() {
   const [error, setError] = useState("");
   const [loggedAgent, setLoggedAgent] = useState<any>(null);
 
+
+  
+
+ 
+
   const {
     register,
     handleSubmit,
@@ -58,6 +63,8 @@ export default function Login() {
   } = useForm<LoginForm>({
     resolver: zodResolver(loginSchema),
   });
+
+
 
  const onSubmit = async (data: LoginForm) => {
   console.log("Form Data:", data);
@@ -79,6 +86,10 @@ export default function Login() {
   }
 
   alert("Login successful");
+
+  setLoggedAgent(agent);
+  setOpen(true);
+  <Link to={`/agent/dashboard/${loggedAgent.id}`} />;
 };
 
   return (
@@ -176,6 +187,7 @@ export default function Login() {
                 className="w-full"
                 disabled={isSubmitting}
                 type="submit"
+                onClick={handleSubmit(onSubmit)}
                 
               >
                 {isSubmitting ? (
@@ -221,9 +233,7 @@ export default function Login() {
 
           <DialogFooter>
             <Button
-              onClick={() =>
-                navigate("/agent/dashboard")
-              }
+              onClick={() => navigate(`/agent/dashboard/${loggedAgent.id}`)}
             >
               Continue
             </Button>

@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import AgentLogin from "./Agent/login";
+import AgentDashboard from "./Agent/agentDashboard";
 function App() {
 
   return (
@@ -9,6 +10,10 @@ function App() {
       <Route 
         path="/agent/login"
         element={<AgentLogin />}
+      />
+      <Route
+        path="/agent/dashboard/:id"
+  element={<AgentDashboard />}
       />
 
     </Routes>
