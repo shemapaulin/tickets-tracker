@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import AgentLogin from "./Agent/login";
-import AgentDashboard from "./Agent/agentDashboard";
+import AdminLogin from "@/Support Agent/login"
+import AdminDashboard from "./Support Agent/adminDashboard";
 function App() {
 
   return (
@@ -8,12 +8,12 @@ function App() {
      <Routes>
 
       <Route 
-        path="/agent/login"
-        element={<AgentLogin />}
+        path="/admin/login"
+        element={<AdminLogin />}
       />
       <Route
-        path="/agent/dashboard/:id"
-  element={<AgentDashboard />}
+        path="/admin/dashboard/:id"
+  element={<AdminDashboard />}
       />
 
     </Routes>

@@ -5,7 +5,7 @@ export const complaints = [
     customerId: 1,
     title: "I can't get verification code",
     description: "after after a few attempts, I still can't get the verification code, I need help to get it",
-    status: "Under Review",
+    status: "Resolved",
     supportAgent: "Shingiro Audran",
   },
   {
