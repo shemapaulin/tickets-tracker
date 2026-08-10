@@ -1,6 +1,18 @@
 import { Bell, UserCircle2 } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function AdminNavbar() {
+  const handleSignOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    window.location.href = "/agent/login";
+  }
   return (
     <header className="h-16 border-b bg-white shadow-sm px-8 flex items-center justify-between">
 
@@ -20,22 +32,19 @@ export default function AdminNavbar() {
 
         <div className="flex items-center gap-3">
 
-          <UserCircle2
-            size={42}
-            className="text-primary"
-          />
-
-          <div>
-
-            <h3 className="font-semibold">
-              Administrator
-            </h3>
-
-            <p className="text-sm text-muted-foreground">
-              System Admin
-            </p>
-
-          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <UserCircle2
+                size={42}
+                className="text-primary"
+              />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem onClick={handleSignOut}>
+                Sign Out
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
         </div>
 

@@ -48,7 +48,7 @@ export default function Login() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [open, setOpen] = useState(false);
-  const [error, setError] = useState("");
+  const [error] = useState("");
   const [loggedAdmin, setLoggedAdmin] = useState<any>(null);
 
 

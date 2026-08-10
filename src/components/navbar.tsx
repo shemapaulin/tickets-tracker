@@ -6,8 +6,14 @@ import {
   Ticket,
   FileText,
   UserCircle,
+  LogOut,
 } from "lucide-react";
-
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -16,6 +22,13 @@ import {
 } from "@/components/ui/sheet";
 
 export default function Navbar() {
+
+  const handleSignOut = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+
+  window.location.href = "/home";
+};
   return (
     <header className="sticky top-0 z-50 border-b bg-background">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
@@ -31,7 +44,7 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <nav className="hidden items-center gap-8 md:flex">
           <Link
-            to="/dashboard"
+            to="/customer/dashboard/:id"
             className="flex items-center gap-2 hover:text-primary"
           >
             <LayoutDashboard size={18} />
@@ -62,10 +75,21 @@ export default function Navbar() {
             <Bell className="h-5 w-5" />
           </Button>
 
-          <Button variant="ghost">
-            <UserCircle className="mr-2 h-5 w-5" />
-            Admin
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Button variant="ghost">
+                <UserCircle className="mr-2 h-5 w-5" />
+                Admin
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={handleSignOut}>
+                <LogOut className="mr-2 h-4 w-4" />
+                Sign Out
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {/* Mobile Menu */}
           <Sheet>

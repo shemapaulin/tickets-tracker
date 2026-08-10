@@ -1,6 +1,7 @@
 import Statustracker from "@/components/statustracker"
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert" 
 import {FieldDemo} from "@/components/comment.tsx";//Alert from "@/components/ui/alert"
+import Navbar from "@/components/navbar";
 
 const feedback = () => {
   type FeedbackStatus =
@@ -11,13 +12,14 @@ const feedback = () => {
 
   const status: FeedbackStatus = "Resolved"; 
   return (
-    <div className=" mb-4 w-full">
+
+     <><Navbar /><div className=" mb-4 w-full">
       <h1 className=" flex justify-center items-center text-2xl font-bold mb-4 pt-10">Feedback</h1>
       <p className=" flex justify-center items-center text-gray-600 mb-4">We value your feedback! Please let us know how we can improve.</p>
       <div className="flex justify-center items-center w-screen pt-10 pb-10">
-          <div className="h-[1px] w-[50%] bg-gray-300"></div>
-        </div>
-        <div className="flex justify-center items-center pt-10 pb-10">
+        <div className="h-[1px] w-[50%] bg-gray-300"></div>
+      </div>
+      <div className="flex justify-center items-center pt-10 pb-10">
         <Statustracker status={status} />
       </div>
 
@@ -32,10 +34,10 @@ const feedback = () => {
           </Alert>
           <FieldDemo />
         </div>
-        
+
         </>
       )}
-    </div>
+    </div></>
   )
 }
 

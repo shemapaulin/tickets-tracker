@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import { Customer } from "@/Services/Customer";
 
 import {
   Card,
@@ -10,6 +13,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,6 +46,9 @@ type LoginForm = z.infer<typeof loginSchema>;
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [loggedUser, setLoggedUser] = useState<{ id: number; name: string } | null>(null);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -43,16 +59,30 @@ export default function Login() {
   });
 
   const onSubmit = async (data: LoginForm) => {
-    console.log(data);
+  console.log("Form Data:", data);
 
-    // simulate API request
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+  const customer = Customer.find((a) => {
+    console.log(a.email, a.password);
 
-    alert("Login successful!");
-  };
+    return (
+      a.email === data.email &&
+      a.password === data.password
+    );
+  });
+
+  console.log("Found Customer:", customer);
+
+  if (!customer) {
+    alert("Wrong email or password");
+    return;
+  }
+
+  setLoggedUser(customer);
+  setOpen(true);
+};
 
   return (
-    <div className="flex min-h-screen items-center justify-center w-[400px] px-4">
+    <><div className="flex min-h-screen items-center justify-center w-[400px] px-4">
       <Card className="w-full max-w-md shadow-xl">
         <CardHeader className="space-y-2">
           <CardTitle className="text-3xl font-bold">
@@ -75,8 +105,7 @@ export default function Login() {
               <Input
                 type="email"
                 placeholder="john@example.com"
-                {...register("email")}
-              />
+                {...register("email")} />
 
               {errors.email && (
                 <p className="text-sm text-red-500">
@@ -92,14 +121,11 @@ export default function Login() {
                 <Input
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
-                  {...register("password")}
-                />
+                  {...register("password")} />
 
                 <button
                   type="button"
-                  onClick={() =>
-                    setShowPassword(!showPassword)
-                  }
+                  onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2"
                 >
                   {showPassword ? (
@@ -137,6 +163,7 @@ export default function Login() {
             <Button
               className="w-full"
               disabled={isSubmitting}
+              onClick={handleSubmit(onSubmit)}
             >
               {isSubmitting ? (
                 <>
@@ -161,5 +188,36 @@ export default function Login() {
         </CardContent>
       </Card>
     </div>
+    
+    <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>
+              Login Successful 🎉
+            </DialogTitle>
+
+            <DialogDescription>
+              Welcome back,
+              <span className="font-semibold">
+                {" "}
+                {loggedUser?.name}
+              </span>
+              .
+            </DialogDescription>
+          </DialogHeader>
+
+          <DialogFooter>
+            <Button
+              disabled={!loggedUser}
+              onClick={() => {
+                if (!loggedUser) return;
+                navigate(`/Customer/dashboard/${loggedUser.id}`);
+              }}
+            >
+              Continue
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog></>
   );
 }

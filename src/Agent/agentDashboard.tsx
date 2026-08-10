@@ -42,7 +42,12 @@ export default function AgentDashboard() {
     (complaint) =>
       complaint.supportAgent === agent.name
   );
+  const handleSignOut = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
 
+  window.location.href = "/agent/login";
+  };
   return (
     <div className="min-h-screen bg-slate-100">
 
@@ -139,6 +144,7 @@ export default function AgentDashboard() {
             <Button
               variant="destructive"
               className="mt-10 w-full justify-start"
+              onClick={handleSignOut}
             >
               <LogOut className="mr-2 h-4 w-4" />
               Logout
