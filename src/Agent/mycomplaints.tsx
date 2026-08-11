@@ -1,5 +1,8 @@
 import { useState } from "react";
-
+import {
+  complaints,
+  updateComplaint,
+} from "@/Services/complaints";
 import {
   Card,
   CardContent,
@@ -51,28 +54,22 @@ export default function MyComplaints({
     Record<number, string>
   >({});
 
-  const handleComplete = (
-    complaintId: number,
-    status: string
-  ) => {
-    const comment = comments[complaintId] || "";
+ const handleComplete = (complaintId: number) => {
+  const complaint = complaintList.find(
+    (c) => c.id === complaintId
+  );
 
-    const updatedComplaints = complaintList.map((c) =>
-      c.id === complaintId
-        ? { ...c, status }
-        : c
-    );
+  if (!complaint) return;
 
-    setComplaintList(updatedComplaints);
+  updateComplaint(
+    complaintId,
+    complaint.status
+  );
 
-    console.log({
-      complaintId,
-      status,
-      comment,
-    });
+  setComplaintList([...complaints]);
 
-    alert("Complaint updated successfully!");
-  };
+  alert("Complaint updated successfully!");
+};
 
   return (
     <div>
@@ -194,16 +191,11 @@ export default function MyComplaints({
             <div className="flex justify-end p-4">
 
               <Button
-                className="bg-green-600 hover:bg-green-700"
-                onClick={() =>
-                  handleComplete(
-                    complaint.id,
-                    complaint.status
-                  )
-                }
-              >
-                Complete
-              </Button>
+  className="bg-green-600 hover:bg-green-700"
+  onClick={() => handleComplete(complaint.id)}
+>
+  Complete
+</Button>
 
             </div>
 
