@@ -12,7 +12,7 @@ import AgentDashboard from "@/Agent/agentDashboard";
 import AdminLogin from "@/Support Agent/login";
 import AdminDashboard from "@/Support Agent/adminDashboard";
 import Feedback from "@/Customer/feedback";
-
+import CustomerHome from "@/Customer/homepage";
 export default function AppRouter() {
   return (
     <Routes>
@@ -27,7 +27,7 @@ export default function AppRouter() {
 
       <Route
         path="/home"
-        element={<Home />}
+        element={<CustomerHome />}
       />
 
       <Route
