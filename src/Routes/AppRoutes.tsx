@@ -1,7 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
 /* Customer */
-import Home from "@/Customer/Home";
 import Dashboard from "@/Customer/dashboard";
 
 /* Support Agent */

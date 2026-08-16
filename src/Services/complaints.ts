@@ -6,7 +6,7 @@ export const complaints = [
     title: "I can't get verification code",
     description: "after after a few attempts, I still can't get the verification code, I need help to get it",
     status: "Resolved",
-    supportAgent: "Shingiro Audran",
+    supportAgent: "Charles Murava",
   },
   {
     id: 2,
@@ -14,6 +14,6 @@ export const complaints = [
     title: "Complaint 2",
     description: "Description of complaint 2",  
     status: "Resolved",
-    supportAgent: "Shingiro Audran",
+    supportAgent: "Charles Murava",
   }
 ]   
