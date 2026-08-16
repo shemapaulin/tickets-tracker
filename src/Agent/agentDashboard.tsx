@@ -14,10 +14,10 @@ import { Button } from "@/components/ui/button";
 import {
   LayoutDashboard,
   ClipboardList,
-  User,
+
   Bell,
   LogOut,
-  Users,
+ 
   CheckCircle2,
   Clock3,
   ArrowRight,
@@ -137,12 +137,7 @@ export default function AgentDashboard() {
      STATISTICS
   ======================================================= */
 
-  const submittedCount =
-    assignedComplaints.filter(
-      (complaint) =>
-        complaint.status === "Submitted"
-    ).length;
-
+  
   const underReviewCount =
     assignedComplaints.filter(
       (complaint) =>

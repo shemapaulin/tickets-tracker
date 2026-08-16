@@ -264,7 +264,7 @@ const CustomerHome = () => {
   ======================================================= */
 
   const onSubmitComplaint = async (
-    data: ComplaintForm
+   
   ) => {
 
     /*
