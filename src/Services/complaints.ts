@@ -18,6 +18,7 @@ export type ComplaintStatus =
   feedback?: string;
 
   submittedToCustomer?: boolean;
+  priority?: "Normal" | "High" | "Urgent";
 }
 export const complaints = [
   {
@@ -25,8 +26,10 @@ export const complaints = [
     customerId: 1,
     title: "I can't get verification code",
     description: "after after a few attempts, I still can't get the verification code, I need help to get it",
-    status: "Resolved",
+    status: "Under Review",
     supportAgent: "Charles Murava",
+    priority: "Urgent"
+  
   },
   {
     id: 2,
@@ -34,6 +37,7 @@ export const complaints = [
     title: "Complaint 2",
     description: "Description of complaint 2",  
     status: "Resolved",
-    supportAgent: "Charles Murava",
+    supportAgent: "Shingiro Audran",
+    priority: "Urgent"
   }
 ]   

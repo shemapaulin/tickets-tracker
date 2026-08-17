@@ -70,8 +70,6 @@ export default function Login() {
   console.log("Form Data:", data);
 
   const admin = Admin.find((a) => {
-    console.log(a.email, a.password);
-
     return (
       a.email === data.email &&
       a.password === data.password
@@ -85,10 +83,22 @@ export default function Login() {
     return;
   }
 
+  // Save logged-in admin
+  localStorage.setItem("token", "admin-token");
+
+  localStorage.setItem(
+    "user",
+    JSON.stringify(admin)
+  );
+
+  // Save admin separately if you want
+  localStorage.setItem(
+    "admin",
+    JSON.stringify(admin)
+  );
 
   setLoggedAdmin(admin);
   setOpen(true);
-  <Link to={`/admin/dashboard/${loggedAdmin.id}`} />;
 };
 
   return (

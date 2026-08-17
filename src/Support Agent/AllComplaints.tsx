@@ -38,7 +38,7 @@ export interface Complaint {
 
 export default function Tickets() {
   const [complaints, setComplaints] = useState<Complaint[]>(
-    initialComplaints as Complaint[]
+    initialComplaints as unknown as Complaint[]
   );
 
   const [selectedTicket, setSelectedTicket] =

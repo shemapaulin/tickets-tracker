@@ -170,6 +170,10 @@ export default function DashboardHome() {
   };
 
 
+  function updatePriority(id: number, arg1: string): void {
+    throw new Error("Function not implemented.");
+  }
+
   /* =======================================================
      RETURN
   ======================================================= */
@@ -537,7 +541,7 @@ export default function DashboardHome() {
           <div>
 
             <CardTitle className="text-base">
-              Recent Complaints
+              Recent Complaints 
             </CardTitle>
 
             <p className="mt-1 text-xs text-muted-foreground">
@@ -854,74 +858,167 @@ export default function DashboardHome() {
             {/* MODAL CONTENT */}
 
             <div className="max-h-[65vh] overflow-y-auto px-5 py-5">
+  <div className="space-y-5">
 
-              <div className="grid grid-cols-2 gap-4">
+    {/* TOP INFO */}
+    <div className="grid grid-cols-2 gap-4">
 
-                <div>
+      {/* CUSTOMER */}
+      <div className="rounded-lg border bg-white p-3">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+          Customer
+        </p>
 
-                  <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-                    Customer
-                  </p>
-
-                  <p className="mt-1 text-sm font-medium">
-                    {selectedComplaint.customerId}
-                  </p>
-
-                </div>
-
-
-                <div>
-
-                  <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-                    Status
-                  </p>
-
-                  <Badge
-                    variant="outline"
-                    className={`mt-1 text-[10px] ${getStatusStyle(
-                      selectedComplaint.status
-                    )}`}
-                  >
-                    {selectedComplaint.status}
-                  </Badge>
-
-                </div>
+        <p className="mt-1 text-sm font-medium">
+          {selectedComplaint.customerId}
+        </p>
+      </div>
 
 
-                <div>
+      {/* STATUS */}
+      <div className="rounded-lg border bg-white p-3">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+          Status
+        </p>
 
-                  <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-                    Assigned Agent
-                  </p>
-
-                  <p className="mt-1 text-sm font-medium">
-                    {selectedComplaint.supportAgent ||
-                      "Not assigned"}
-                  </p>
-
-                </div>
-
-              </div>
+        <Badge
+          variant="outline"
+          className={`mt-1 text-[10px] ${getStatusStyle(
+            selectedComplaint.status
+          )}`}
+        >
+          {selectedComplaint.status}
+        </Badge>
+      </div>
 
 
-              {/* DESCRIPTION */}
+      {/* AGENT */}
+      <div className="rounded-lg border bg-white p-3">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+          Assigned Agent
+        </p>
 
-              <div className="mt-6">
+        <p className="mt-1 text-sm font-medium">
+          {selectedComplaint.supportAgent ||
+            "Not assigned"}
+        </p>
+      </div>
 
-                <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-                  Complaint Description
-                </p>
 
-                <div className="mt-2 rounded-lg bg-slate-50 p-4 text-sm leading-6 text-slate-700">
+      {/* PRIORITY */}
+      <div className="rounded-lg border bg-white p-3">
+        <div className="flex items-center justify-between">
 
-                  {selectedComplaint.description ||
-                    "No description provided."}
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+            Priority
+          </p>
 
-                </div>
+          {selectedComplaint.priority === "Urgent" && (
+            <span className="flex items-center gap-1 text-[9px] font-semibold text-red-600">
+              <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+              Immediate
+            </span>
+          )}
 
-              </div>
+        </div>
 
-            </div>
+        <div className="mt-2 flex gap-1.5">
+
+          {/* NORMAL */}
+          <button
+            type="button"
+            onClick={() =>
+              updatePriority(
+                selectedComplaint.id,
+                "Normal"
+              )
+            }
+            className={`flex-1 rounded-md border px-2 py-1.5 text-[10px] font-medium transition-all ${
+              (selectedComplaint.priority || "Normal") ===
+              "Normal"
+                ? "border-blue-300 bg-blue-50 text-blue-700 shadow-sm"
+                : "border-slate-200 bg-white text-slate-500 hover:bg-slate-50"
+            }`}
+          >
+            Normal
+          </button>
+
+          {/* HIGH */}
+          <button
+            type="button"
+            onClick={() =>
+              updatePriority(
+                selectedComplaint.id,
+                "High"
+              )
+            }
+            className={`flex-1 rounded-md border px-2 py-1.5 text-[10px] font-medium transition-all ${
+              selectedComplaint.priority === "High"
+                ? "border-orange-300 bg-orange-50 text-orange-700 shadow-sm"
+                : "border-slate-200 bg-white text-slate-500 hover:bg-slate-50"
+            }`}
+          >
+            High
+          </button>
+
+          {/* URGENT */}
+          <button
+            type="button"
+            onClick={() =>
+              updatePriority(
+                selectedComplaint.id,
+                "Urgent"
+              )
+            }
+            className={`flex-1 rounded-md border px-2 py-1.5 text-[10px] font-medium transition-all ${
+              selectedComplaint.priority === "Urgent"
+                ? "border-red-300 bg-red-50 text-red-700 shadow-sm"
+                : "border-slate-200 bg-white text-slate-500 hover:bg-slate-50"
+            }`}
+          >
+            Urgent
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+
+    {/* URGENT NOTICE */}
+    {selectedComplaint.priority === "Urgent" && (
+      <div className="flex items-center gap-3 rounded-lg border border-red-200 bg-red-50 px-3 py-2.5">
+
+        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-100">
+          <span className="text-sm">!</span>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-red-800">
+            Urgent complaint
+          </p>
+
+          <p className="text-[10px] text-red-700">
+            This ticket should be handled as soon as possible.
+          </p>
+        </div>
+      </div>
+    )}
+
+
+    {/* DESCRIPTION */}
+    <div>
+      <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+        Complaint Description
+      </p>
+
+      <div className="mt-2 rounded-lg border bg-slate-50 p-4 text-sm leading-6 text-slate-700">
+        {selectedComplaint.description ||
+          "No description provided."}
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
             {/* MODAL FOOTER */}

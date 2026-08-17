@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 import {
   LayoutDashboard,
-  CheckCircle2,
+ 
   BarChart3,
 } from "lucide-react";
 
@@ -60,21 +60,7 @@ export default function AdminSidebar({
             All Tickets
           </Button>
 
-          <Button
-            variant={
-              page === "resolved"
-                ? "secondary"
-                : "ghost"
-            }
-            className="w-full justify-start"
-            onClick={() =>
-              setPage("resolved")
-            }
-          >
-            <CheckCircle2 className="mr-2 h-5 w-5" />
-
-            Resolved Tickets
-          </Button>
+          
 
           <Button
             variant={

@@ -707,11 +707,11 @@ const CustomerHome = () => {
 
           <div className="mx-auto max-w-2xl text-center">
 
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+            <p className="text-sm font-semibold uppercase tracking-wider text-emerald-600 ">
               How can we help?
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold md:text-4xl">
+            <h2 className="mt-3 text-3xl font-bold md:text-4xl text-emerald-600">
               Tell us what you need
             </h2>
 
@@ -759,7 +759,7 @@ const CustomerHome = () => {
 
                 <CardContent className="p-6">
 
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-emerald-600 group-hover:text-primary-foreground">
 
                     <item.icon
                       className="h-6 w-6"
@@ -775,7 +775,7 @@ const CustomerHome = () => {
                     {item.description}
                   </p>
 
-                  <div className="mt-5 flex items-center text-sm font-medium text-primary">
+                  <div className="mt-5 flex items-center text-sm font-medium text-emerald-600">
 
                     Learn more
 
@@ -811,7 +811,7 @@ const CustomerHome = () => {
 
           <div className="text-center">
 
-            <h2 className="text-3xl font-bold md:text-4xl">
+            <h2 className="text-3xl font-bold md:text-4xl text-emerald-600">
               Simple. Transparent. Trackable.
             </h2>
 
@@ -856,7 +856,7 @@ const CustomerHome = () => {
                   {item.number}
                 </span>
 
-                <h3 className="mt-3 text-xl font-semibold">
+                <h3 className="mt-3 text-xl font-semibold text-emerald-600">
                   {item.title}
                 </h3>
 
@@ -884,7 +884,7 @@ const CustomerHome = () => {
         className="px-6 pb-24"
       >
 
-        <div className="mx-auto max-w-7xl rounded-3xl bg-slate-950 px-8 py-16 text-center text-white md:px-16">
+        <div className="mx-auto max-w-7xl rounded-3xl bg-emerald-600 px-8 py-16 text-center text-white md:px-16">
 
           <h2 className="text-3xl font-bold md:text-4xl">
             Have something you'd like us to know?
@@ -902,7 +902,7 @@ const CustomerHome = () => {
             onClick={
               handleCreateComplaint
             }
-            className="mt-8 rounded-full px-8"
+            className="mt-8 rounded-full px-8 bg-white text-emerald-600 hover:bg-white/80"
           >
 
             Create a Complaint
