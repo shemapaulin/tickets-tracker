@@ -342,584 +342,361 @@ const CustomerHome = () => {
 
       <header className="absolute left-0 right-0 top-0 z-50">
 
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+  <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
 
-          {/* LOGO */}
+    {/* LOGO */}
 
-          <div className="flex items-center gap-3">
+    <a
+      href="#home"
+      className="flex items-center gap-2.5"
+    >
 
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 backdrop-blur">
+      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-600 shadow-sm">
+        <MessageSquareText className="h-4.5 w-4.5 text-white" />
+      </div>
 
-              <MessageSquareText
-                className="h-5 w-5 text-white"
-              />
+      <span className="text-lg font-bold tracking-tight text-slate-900">
+        Support<span className="text-emerald-600">Desk</span>
+      </span>
 
-            </div>
+    </a>
 
-            <span className="text-xl font-bold text-white">
-              SupportDesk
-            </span>
 
-          </div>
+    {/* DESKTOP NAVIGATION */}
 
-          {/* DESKTOP NAVIGATION */}
+    <nav className="hidden items-center gap-7 md:flex">
 
-          <nav className="hidden items-center gap-8 text-sm text-white/75 md:flex">
+      <a
+        href="#home"
+        className="text-sm font-medium text-slate-700 transition hover:text-emerald-600"
+      >
+        Home
+      </a>
 
-            <a
-              href="#home"
-              className="transition hover:text-white"
-            >
-              Home
-            </a>
+      <a
+        href="#support"
+        className="text-sm font-medium text-slate-700 transition hover:text-emerald-600"
+      >
+        Support
+      </a>
 
-            <a
-              href="#support"
-              className="transition hover:text-white"
-            >
-              Support
-            </a>
+      <a
+        href="#how-it-works"
+        className="text-sm font-medium text-slate-700 transition hover:text-emerald-600"
+      >
+        How It Works
+      </a>
 
-            <a
-              href="#how-it-works"
-              className="transition hover:text-white"
-            >
-              How It Works
-            </a>
+      <a
+        href="#contact"
+        className="text-sm font-medium text-slate-700 transition hover:text-emerald-600"
+      >
+        Contact
+      </a>
 
-            <a
-              href="#contact"
-              className="transition hover:text-white"
-            >
-              Contact
-            </a>
+    </nav>
 
-          </nav>
 
-          {/* RIGHT SIDE */}
+    {/* RIGHT SIDE */}
 
-          <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3">
 
-            {/* CUSTOMER */}
 
-            {customer && (
+      {/* CUSTOMER */}
 
-              <div className="hidden items-center gap-2 sm:flex">
+      {customer && (
 
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/15 text-sm font-semibold text-white">
+        <div className="hidden items-center gap-2 sm:flex">
 
-                  {customer.firstName
-                    .charAt(0)
-                    .toUpperCase()}
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-700">
 
-                </div>
-
-                <span className="text-sm font-medium text-white">
-                  {customer.firstName}
-                </span>
-
-              </div>
-
-            )}
-
-            {/* CREATE COMPLAINT */}
-
-            <Button
-              onClick={
-                handleCreateComplaint
-              }
-              className="rounded-full bg-white px-5 text-slate-900 shadow-lg hover:bg-white/90"
-            >
-
-              Create Complaint
-
-              <ArrowRight
-                className="ml-2 h-4 w-4"
-              />
-
-            </Button>
+            {customer.firstName
+              .charAt(0)
+              .toUpperCase()}
 
           </div>
+
+          <span className="text-sm font-medium text-slate-700">
+
+            {customer.firstName}
+
+          </span>
 
         </div>
 
-      </header>
+      )}
 
+
+      {/* CREATE COMPLAINT */}
+
+      <Button
+        onClick={handleCreateComplaint}
+        size="sm"
+        className="h-9 rounded-full bg-emerald-600 px-4 text-sm font-medium text-white shadow-sm transition hover:bg-emerald-700"
+      >
+
+        Create Complaint
+
+        <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+
+      </Button>
+
+    </div>
+
+  </div>
+
+</header>
 
       {/* ===================================================
           HERO
       =================================================== */}
 
       <section
-        id="home"
-        className="relative flex min-h-[700px] items-center overflow-hidden"
-      >
+  id="home"
+  className="relative flex min-h-[560px] items-center overflow-hidden bg-gradient-to-br from-white via-emerald-50/60 to-green-100/70"
+>
+  {/* SOFT BACKGROUND */}
 
-        {/* BACKGROUND */}
+  <div className="absolute -left-40 -top-40 h-[450px] w-[450px] rounded-full bg-emerald-200/40 blur-[100px]" />
 
-        <div className="absolute inset-0 bg-slate-950" />
+  <div className="absolute -bottom-40 right-0 h-[450px] w-[450px] rounded-full bg-green-200/40 blur-[110px]" />
 
-        <div className="absolute -left-40 -top-40 h-[600px] w-[600px] rounded-full bg-blue-600/30 blur-[130px]" />
+  {/* HERO CONTENT */}
 
-        <div className="absolute -bottom-40 right-0 h-[600px] w-[600px] rounded-full bg-indigo-600/30 blur-[130px]" />
+  <div className="relative mx-auto flex w-full max-w-6xl items-center px-6 py-24">
 
-        {/* GRID */}
+    {/* LEFT */}
 
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)",
-            backgroundSize:
-              "50px 50px",
-          }}
-        />
+    <div className="max-w-2xl">
 
-        {/* HERO CONTENT */}
+      <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-emerald-700">
+        Customer Support
+      </p>
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 pb-20 pt-32 md:grid-cols-2">
+      <h1 className="text-4xl font-bold leading-tight tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
+        We're here to
+        <span className="block text-emerald-600">
+          listen and help.
+        </span>
+      </h1>
 
-          {/* LEFT */}
+      <p className="mt-5 max-w-lg text-base leading-7 text-slate-600 md:text-lg">
+        Have a complaint or issue that needs attention?
+        Tell us what happened and we'll make sure it
+        reaches the right team.
+      </p>
 
-          <div className="max-w-2xl">
+      {/* ONE CTA */}
 
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 backdrop-blur">
+      <div className="mt-7">
 
-              <span className="h-2 w-2 rounded-full bg-green-400" />
+        <Button
+          size="lg"
+          onClick={handleCreateComplaint}
+          className="h-11 rounded-full bg-emerald-600 px-7 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700"
+        >
+          Create a Complaint
 
-              We're here to help
+          <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
 
-            </div>
+      </div>
 
-            <h1 className="text-5xl font-bold leading-tight tracking-tight text-white md:text-6xl">
+      {/* SMALL TRUST LINE */}
 
-              We're listening.
+      <div className="mt-6 flex items-center gap-2 text-xs text-slate-500">
 
-              <br />
+        <ShieldCheck className="h-4 w-4 text-emerald-600" />
 
-              <span className="text-blue-400">
-                Let's solve it together.
+        Simple, secure and trackable support
+
+      </div>
+
+    </div>
+
+
+    {/* ===================================================
+        RIGHT SIDE
+        ONLY SHOW AFTER CUSTOMER SUBMITS A COMPLAINT
+    =================================================== */}
+
+    {customer && complaintNumber && (
+
+      <div className="ml-auto hidden w-full max-w-sm lg:block">
+
+        <Card className="border-emerald-100 bg-white/90 shadow-lg shadow-emerald-900/5 backdrop-blur">
+
+          <CardContent className="p-5">
+
+            {/* HEADER */}
+
+            <div className="flex items-start justify-between">
+
+              <div>
+
+                <p className="text-xs text-slate-500">
+                  Your complaint
+                </p>
+
+                <h3 className="mt-1 text-base font-semibold text-slate-900">
+                  #{complaintNumber}
+                </h3>
+
+              </div>
+
+              <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-medium text-emerald-700">
+                Submitted
               </span>
 
-            </h1>
-
-            <p className="mt-6 max-w-xl text-lg leading-8 text-white/65">
-
-              Have a complaint, question,
-              or issue that needs attention?
-              Tell us what happened and our
-              support team will make sure your
-              request reaches the right people.
-
-            </p>
-
-            {/* BUTTONS */}
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-
-              <Button
-                size="lg"
-                onClick={
-                  handleCreateComplaint
-                }
-                className="h-12 rounded-full px-7"
-              >
-
-                Submit a Complaint
-
-                <ArrowRight
-                  className="ml-2 h-5 w-5"
-                />
-
-              </Button>
-
-
-              <Button
-                size="lg"
-                variant="outline"
-                className="h-12 rounded-full border-white/20 bg-white/5 px-7 text-white hover:bg-white/10 hover:text-white"
-              >
-
-                <Search
-                  className="mr-2 h-5 w-5"
-                />
-
-                Track My Complaint
-
-              </Button>
-
             </div>
 
-            {/* TRUST */}
 
-            <div className="mt-8 flex flex-wrap items-center gap-6 text-sm text-white/50">
+            {/* TRACKER */}
 
-              <div className="flex items-center gap-2">
+            <div className="mt-6 space-y-4">
 
-                <ShieldCheck
-                  className="h-4 w-4"
-                />
+              {/* SUBMITTED */}
 
-                Secure
+              <div className="flex items-start gap-3">
+
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-100">
+
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+
+                </div>
+
+                <div>
+
+                  <p className="text-sm font-medium text-slate-900">
+                    Submitted
+                  </p>
+
+                  <p className="text-xs text-slate-500">
+                    Your complaint was received.
+                  </p>
+
+                </div>
 
               </div>
 
-              <div className="flex items-center gap-2">
 
-                <Clock3
-                  className="h-4 w-4"
-                />
+              {/* CONNECTOR */}
 
-                Fast response
+              <div className="ml-3.5 h-4 border-l border-dashed border-slate-200" />
+
+
+              {/* UNDER REVIEW */}
+
+              <div className="flex items-start gap-3">
+
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-50">
+
+                  <Clock3 className="h-4 w-4 text-emerald-600" />
+
+                </div>
+
+                <div>
+
+                  <p className="text-sm font-medium text-slate-900">
+                    Under Review
+                  </p>
+
+                  <p className="text-xs text-slate-500">
+                    Our team is reviewing your request.
+                  </p>
+
+                </div>
 
               </div>
 
-              <div className="flex items-center gap-2">
 
-                <CheckCircle2
-                  className="h-4 w-4"
-                />
+              {/* CONNECTOR */}
 
-                Trackable
+              <div className="ml-3.5 h-4 border-l border-dashed border-slate-200" />
+
+
+              {/* IN PROGRESS */}
+
+              <div className="flex items-start gap-3 opacity-40">
+
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100">
+
+                  <MessageSquareText className="h-4 w-4 text-slate-500" />
+
+                </div>
+
+                <div>
+
+                  <p className="text-sm font-medium text-slate-900">
+                    In Progress
+                  </p>
+
+                  <p className="text-xs text-slate-500">
+                    The team is working on your issue.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              {/* CONNECTOR */}
+
+              <div className="ml-3.5 h-4 border-l border-dashed border-slate-200" />
+
+
+              {/* RESOLVED */}
+
+              <div className="flex items-start gap-3 opacity-40">
+
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100">
+
+                  <CheckCircle2 className="h-4 w-4 text-slate-500" />
+
+                </div>
+
+                <div>
+
+                  <p className="text-sm font-medium text-slate-900">
+                    Resolved
+                  </p>
+
+                  <p className="text-xs text-slate-500">
+                    Your issue has been resolved.
+                  </p>
+
+                </div>
 
               </div>
 
             </div>
 
-          </div>
 
-          {/* ===================================================
-              RIGHT HERO CARD
-          =================================================== */}
+            {/* TRACKING NUMBER */}
 
-          <div className="hidden justify-center md:flex">
+            <div className="mt-5 rounded-lg bg-emerald-50 p-3">
 
-            <div className="relative w-full max-w-md">
+              <p className="text-[10px] font-medium uppercase tracking-wide text-emerald-700">
+                Complaint number
+              </p>
 
-              <div className="absolute -inset-4 rounded-3xl bg-blue-500/10 blur-2xl" />
-
-              {customer && complaintNumber ? (
-
-                /* ================================================
-                   CUSTOMER HAS SUBMITTED A COMPLAINT
-                ================================================ */
-
-                <Card className="relative overflow-hidden border-white/10 bg-white/[0.07] text-white shadow-2xl backdrop-blur-xl">
-
-                  <CardContent className="p-7">
-
-                    <div className="flex items-center justify-between">
-
-                      <div>
-
-                        <p className="text-sm text-white/50">
-                          Your request
-                        </p>
-
-                        <h3 className="mt-1 text-xl font-semibold">
-                          Complaint #{complaintNumber}
-                        </h3>
-
-                      </div>
-
-                      <div className="rounded-full bg-blue-500/15 px-3 py-1 text-xs text-blue-300">
-                        Submitted
-                      </div>
-
-                    </div>
-
-                    {/* TRACKER */}
-
-                    <div className="my-8 space-y-5">
-
-                      {/* SUBMITTED */}
-
-                      <div className="flex gap-4">
-
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green-500/15">
-
-                          <CheckCircle2
-                            className="h-5 w-5 text-green-400"
-                          />
-
-                        </div>
-
-                        <div>
-
-                          <p className="font-medium">
-                            Complaint Submitted
-                          </p>
-
-                          <p className="text-sm text-white/40">
-                            Your complaint was successfully received
-                          </p>
-
-                        </div>
-
-                      </div>
-
-                      <div className="ml-4 h-7 border-l border-dashed border-white/20" />
-
-                      {/* UNDER REVIEW */}
-
-                      <div className="flex gap-4">
-
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-500/15">
-
-                          <Clock3
-                            className="h-5 w-5 text-blue-400"
-                          />
-
-                        </div>
-
-                        <div>
-
-                          <p className="font-medium">
-                            Under Review
-                          </p>
-
-                          <p className="text-sm text-white/40">
-                            Our team will review your complaint
-                          </p>
-
-                        </div>
-
-                      </div>
-
-                      <div className="ml-4 h-7 border-l border-dashed border-white/20" />
-
-                      {/* IN PROGRESS */}
-
-                      <div className="flex gap-4 opacity-40">
-
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10">
-
-                          <MessageSquareText
-                            className="h-5 w-5"
-                          />
-
-                        </div>
-
-                        <div>
-
-                          <p className="font-medium">
-                            In Progress
-                          </p>
-
-                          <p className="text-sm">
-                            Our team is working on your issue
-                          </p>
-
-                        </div>
-
-                      </div>
-
-                      <div className="ml-4 h-7 border-l border-dashed border-white/20" />
-
-                      {/* RESOLVED */}
-
-                      <div className="flex gap-4 opacity-40">
-
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10">
-
-                          <CheckCircle2
-                            className="h-5 w-5"
-                          />
-
-                        </div>
-
-                        <div>
-
-                          <p className="font-medium">
-                            Resolved
-                          </p>
-
-                          <p className="text-sm">
-                            Your issue has been resolved
-                          </p>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                    {/* FOOTER */}
-
-                    <div className="rounded-xl bg-white/5 p-4">
-
-                      <p className="text-sm text-white/50">
-                        Keep your complaint number
-                      </p>
-
-                      <p className="mt-1 font-medium">
-                        {complaintNumber}
-                      </p>
-
-                    </div>
-
-                  </CardContent>
-
-                </Card>
-
-              ) : (
-
-                /* ================================================
-                   BEFORE CUSTOMER SUBMITS A COMPLAINT
-                ================================================ */
-
-                <Card className="relative overflow-hidden border-white/10 bg-white/[0.07] text-white shadow-2xl backdrop-blur-xl">
-
-                  <CardContent className="p-7">
-
-                    <div className="flex items-center gap-4">
-
-                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/15">
-
-                        <MessageSquareText
-                          className="h-6 w-6 text-blue-400"
-                        />
-
-                      </div>
-
-                      <div>
-
-                        <p className="text-sm text-white/50">
-                          Your support journey
-                        </p>
-
-                        <h3 className="text-xl font-semibold">
-                          We're here to help
-                        </h3>
-
-                      </div>
-
-                    </div>
-
-                    {/* JOURNEY */}
-
-                    <div className="my-8 space-y-6">
-
-                      {/* STEP 1 */}
-
-                      <div className="flex gap-4">
-
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-500/15 text-sm font-semibold text-blue-400">
-
-                          1
-
-                        </div>
-
-                        <div>
-
-                          <p className="font-medium">
-                            Tell us what happened
-                          </p>
-
-                          <p className="text-sm text-white/40">
-                            Submit your complaint in just a few steps
-                          </p>
-
-                        </div>
-
-                      </div>
-
-                      {/* LINE */}
-
-                      <div className="ml-4 h-6 border-l border-dashed border-white/20" />
-
-                      {/* STEP 2 */}
-
-                      <div className="flex gap-4">
-
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-sm font-semibold text-white/50">
-
-                          2
-
-                        </div>
-
-                        <div>
-
-                          <p className="font-medium">
-                            We review your complaint
-                          </p>
-
-                          <p className="text-sm text-white/40">
-                            Your request reaches the right team
-                          </p>
-
-                        </div>
-
-                      </div>
-
-                      {/* LINE */}
-
-                      <div className="ml-4 h-6 border-l border-dashed border-white/20" />
-
-                      {/* STEP 3 */}
-
-                      <div className="flex gap-4">
-
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-sm font-semibold text-white/50">
-
-                          3
-
-                        </div>
-
-                        <div>
-
-                          <p className="font-medium">
-                            Follow your progress
-                          </p>
-
-                          <p className="text-sm text-white/40">
-                            Track your complaint until it's resolved
-                          </p>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                    {/* INFO */}
-
-                    <div className="rounded-xl bg-white/5 p-4">
-
-                      <div className="flex items-center gap-3">
-
-                        <ShieldCheck className="h-5 w-5 text-green-400" />
-
-                        <div>
-
-                          <p className="text-sm font-medium">
-                            Safe & trackable
-                          </p>
-
-                          <p className="text-xs text-white/40">
-                            Every complaint gets a unique tracking number
-                          </p>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                  </CardContent>
-
-                </Card>
-
-              )}
+              <p className="mt-1 text-sm font-semibold text-emerald-900">
+                {complaintNumber}
+              </p>
 
             </div>
 
-          </div>
+          </CardContent>
 
-        </div>
+        </Card>
 
-      </section>
+      </div>
 
+    )}
+
+  </div>
+
+</section>
 
       {/* ===================================================
           SUPPORT
