@@ -135,38 +135,7 @@ export default function Tickets() {
   /*
    * Assign ticket to agent
    */
-  const assignTicket = (
-    complaintId: number,
-    agentName: string
-  ) => {
-    setComplaints((prev) =>
-      prev.map((complaint) =>
-        complaint.id === complaintId
-          ? {
-              ...complaint,
-              supportAgent: agentName,
-              status:
-                complaint.status === "Under Review"
-                  ? "In Progress"
-                  : complaint.status,
-            }
-          : complaint
-      )
-    );
-
-    setSelectedTicket((current) =>
-      current?.id === complaintId
-        ? {
-            ...current,
-            supportAgent: agentName,
-            status:
-              current.status === "Under Review"
-                ? "In Progress"
-                : current.status,
-          }
-        : current
-    );
-  };
+  
 
   /*
    * Resolve ticket
@@ -354,7 +323,8 @@ export default function Tickets() {
         onSubmit={submitToCustomer}
         onFeedbackChange={updateFeedback} onAssign={function (id: number, agentName: string | null): void {
           throw new Error("Function not implemented.");
-        } }      />
+          console.log(id, agentName);
+        } }       />
     </div>
   );
 }
