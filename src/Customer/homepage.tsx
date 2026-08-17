@@ -399,50 +399,46 @@ const CustomerHome = () => {
 
     {/* RIGHT SIDE */}
 
-    <div className="flex items-center gap-3">
+   {/* RIGHT SIDE */}
 
+<div className="flex items-center gap-3">
 
-      {/* CUSTOMER */}
+  {/* CUSTOMER */}
 
-      {customer && (
+  {customer && (
+    <div className="flex items-center">
 
-        <div className="hidden items-center gap-2 sm:flex">
+      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-700 ring-2 ring-white">
+        {customer.firstName
+          .charAt(0)
+          .toUpperCase()}
+      </div>
 
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-700">
-
-            {customer.firstName
-              .charAt(0)
-              .toUpperCase()}
-
-          </div>
-
-          <span className="text-sm font-medium text-slate-700">
-
-            {customer.firstName}
-
-          </span>
-
-        </div>
-
-      )}
-
-
-      {/* CREATE COMPLAINT */}
-
-      <Button
-        onClick={handleCreateComplaint}
-        size="sm"
-        className="h-9 rounded-full bg-emerald-600 px-4 text-sm font-medium text-white shadow-sm transition hover:bg-emerald-700"
-      >
-
-        Create Complaint
-
-        <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-
-      </Button>
+      {/* Name only on desktop */}
+      <span className="ml-2 hidden text-sm font-medium text-slate-700 sm:block">
+        {customer.firstName}
+      </span>
 
     </div>
+  )}
 
+
+  {/* CREATE COMPLAINT */}
+  {/* Hidden on mobile */}
+
+  <Button
+    onClick={handleCreateComplaint}
+    size="sm"
+    className="hidden h-9 rounded-full bg-emerald-600 px-4 text-sm font-medium text-white shadow-sm transition hover:bg-emerald-700 sm:flex"
+  >
+
+    Create Complaint
+
+    <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+
+  </Button>
+
+</div>
   </div>
 
 </header>
