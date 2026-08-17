@@ -1,14 +1,11 @@
 import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
-
-import {
   ClipboardList,
-  Clock3,
+  Inbox,
+  UserCheck,
   CheckCircle2,
-  Users,
 } from "lucide-react";
+
+import { Card } from "@/components/ui/card";
 
 interface StatisticsCardsProps {
   totalComplaints: number;
@@ -23,117 +20,69 @@ export default function StatisticsCards({
   assignedComplaints,
   resolvedComplaints,
 }: StatisticsCardsProps) {
+  const statistics = [
+    {
+      label: "Total Complaints",
+      value: totalComplaints,
+      icon: ClipboardList,
+      iconClass: "text-slate-600",
+      bgClass: "bg-slate-100",
+    },
+    {
+      label: "New",
+      value: newComplaints,
+      icon: Inbox,
+      iconClass: "text-blue-600",
+      bgClass: "bg-blue-50",
+    },
+    {
+      label: "Assigned",
+      value: assignedComplaints,
+      icon: UserCheck,
+      iconClass: "text-amber-600",
+      bgClass: "bg-amber-50",
+    },
+    {
+      label: "Resolved",
+      value: resolvedComplaints,
+      icon: CheckCircle2,
+      iconClass: "text-green-600",
+      bgClass: "bg-green-50",
+    },
+  ];
+
   return (
-    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+    <Card className="overflow-hidden border shadow-sm">
+      <div className="grid grid-cols-2 divide-x divide-y sm:grid-cols-4 sm:divide-y-0">
+        {statistics.map((stat) => {
+          const Icon = stat.icon;
 
-      {/* Total Complaints */}
+          return (
+            <div
+              key={stat.label}
+              className="flex items-center gap-3 px-4 py-4"
+            >
+              <div
+                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${stat.bgClass}`}
+              >
+                <Icon
+                  className={`h-5 w-5 ${stat.iconClass}`}
+                />
+              </div>
 
-      <Card className="hover:shadow-lg transition-shadow">
+              <div className="min-w-0">
+                <p className="truncate text-xs font-medium text-muted-foreground">
+                  {stat.label}
+                </p>
 
-        <CardContent className="flex items-center justify-between p-6">
-
-          <div>
-
-            <p className="text-sm text-muted-foreground">
-              Total Complaints
-            </p>
-
-            <h2 className="text-4xl font-bold">
-              {totalComplaints}
-            </h2>
-
-          </div>
-
-          <ClipboardList
-            size={42}
-            className="text-primary"
-          />
-
-        </CardContent>
-
-      </Card>
-
-      {/* New */}
-
-      <Card className="hover:shadow-lg transition-shadow">
-
-        <CardContent className="flex items-center justify-between p-6">
-
-          <div>
-
-            <p className="text-sm text-muted-foreground">
-              New Complaints
-            </p>
-
-            <h2 className="text-4xl font-bold text-red-500">
-              {newComplaints}
-            </h2>
-
-          </div>
-
-          <Clock3
-            size={42}
-            className="text-red-500"
-          />
-
-        </CardContent>
-
-      </Card>
-
-      {/* Assigned */}
-
-      <Card className="hover:shadow-lg transition-shadow">
-
-        <CardContent className="flex items-center justify-between p-6">
-
-          <div>
-
-            <p className="text-sm text-muted-foreground">
-              Assigned
-            </p>
-
-            <h2 className="text-4xl font-bold text-yellow-500">
-              {assignedComplaints}
-            </h2>
-
-          </div>
-
-          <Users
-            size={42}
-            className="text-yellow-500"
-          />
-
-        </CardContent>
-
-      </Card>
-
-      {/* Resolved */}
-
-      <Card className="hover:shadow-lg transition-shadow">
-
-        <CardContent className="flex items-center justify-between p-6">
-
-          <div>
-
-            <p className="text-sm text-muted-foreground">
-              Resolved
-            </p>
-
-            <h2 className="text-4xl font-bold text-green-600">
-              {resolvedComplaints}
-            </h2>
-
-          </div>
-
-          <CheckCircle2
-            size={42}
-            className="text-green-600"
-          />
-
-        </CardContent>
-
-      </Card>
-
-    </div>
+                <p className="text-xl font-bold tracking-tight">
+                  {stat.value}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </Card>
   );
 }

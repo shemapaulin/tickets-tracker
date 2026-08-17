@@ -1,4 +1,24 @@
 
+export type ComplaintStatus =
+  | "Under Review"
+  | "In Progress"
+  | "Resolved";
+
+  export interface Complaint {
+  id: number;
+  customerId: number;
+  customerName: string;
+  title: string;
+  description: string;
+
+  status: ComplaintStatus;
+
+  supportAgent?: string;
+
+  feedback?: string;
+
+  submittedToCustomer?: boolean;
+}
 export const complaints = [
   {
     id: 1,
