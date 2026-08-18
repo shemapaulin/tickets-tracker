@@ -170,8 +170,9 @@ export default function DashboardHome() {
   };
 
 
-  function updatePriority(id: number, arg1: string): void {
+  function updatePriority(id: number, priority: string): void {
     throw new Error("Function not implemented.");
+    console.log(id, priority);
   }
 
   /* =======================================================

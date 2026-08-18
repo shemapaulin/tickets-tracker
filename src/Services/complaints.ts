@@ -28,7 +28,7 @@ export const complaints = [
     description: "after after a few attempts, I still can't get the verification code, I need help to get it",
     status: "Under Review",
     supportAgent: "Charles Murava",
-    priority: "Urgent"
+    priority: ""
   
   },
   {
@@ -38,6 +38,6 @@ export const complaints = [
     description: "Description of complaint 2",  
     status: "Resolved",
     supportAgent: "Shingiro Audran",
-    priority: "Urgent"
+    priority: ""
   }
 ]   
